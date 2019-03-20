@@ -14,8 +14,20 @@ export class AccountRepository {
         return await this.accountModel.find().exec();
     }
 
+    async findById(id: string): Promise<AccountEntity> {
+        return await this.accountModel.findOne({_id: id});
+    }
+
     async create(accountDTO: AccountDTO): Promise<AccountEntity> {
-        const created = new this.accountModel(accountDTO);
-        return await created.save();
+        const account = new this.accountModel(accountDTO);
+        return await account.save();
+    }
+
+    async update(id: string, accountDTO: AccountDTO): Promise<AccountEntity> {
+        return await this.accountModel.updateOne({_id: id}, accountDTO);
+    }
+
+    async delete(id: string): Promise<AccountEntity> {
+        return await this.accountModel.deleteOne({_id: id});
     }
 }

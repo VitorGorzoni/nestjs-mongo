@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import { wDocument } from 'mongoose';
 
 export interface AccountEntity extends Document {
     readonly name?: string;
