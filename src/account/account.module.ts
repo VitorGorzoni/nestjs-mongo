@@ -6,8 +6,14 @@ import { AccountEndpoint } from './view/AccountEndpoint';
 import { AccountSchema } from './schema/account.schema';
 
 @Module({
-    imports: [CacheModule.register(), MongooseModule.forFeature([{ name: 'Account', schema: AccountSchema }])],
+    imports: [
+        MongooseModule.forFeature([{ name: 'Account', schema: AccountSchema }]),
+        CacheModule.register()
+    ],
     controllers: [AccountEndpoint],
-    providers: [AccountService, AccountRepository],
+    providers: [
+        AccountService,
+        AccountRepository
+    ]
 })
-export class AccountModule {}
+export class AccountModule { }

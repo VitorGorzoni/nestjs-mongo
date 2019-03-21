@@ -8,6 +8,6 @@ import { Mongo } from './config/mongo';
     {
       useNewUrlParser: true
     }),
-    AccountModule]
+    AccountModule],
 })
 export class AppModule { }
