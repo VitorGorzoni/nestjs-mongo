@@ -32,6 +32,10 @@ Rest api with mongodb and swagger.
 ```bash
 $ npm install
 ```
+## Docker
+
+$ docker build -t nestjs-mongo .
+$ docker run nestjs-mongo
 
 ## Running the app
 
