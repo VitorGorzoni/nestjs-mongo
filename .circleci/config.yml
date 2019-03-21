@@ -21,4 +21,4 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: service mongodb start
+      - run: npm run start:prod
