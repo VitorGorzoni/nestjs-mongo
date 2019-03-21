@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { AccountFacade } from '../AccountFacade';
-import { AccountRepository } from 'src/account/infrastructure/AccountRepository';
-import { AccountEntity } from 'src/account/domain/entity/AccountEntity';
-import { AccountDTO } from 'src/account/domain/dto/AccountDTO';
+import { AccountRepository } from '../../infrastructure/AccountRepository';
+import { AccountEntity } from '../../domain/entity/AccountEntity';
+import { AccountDTO } from '../../domain/dto/AccountDTO';
 
 @Injectable()
 export class AccountService implements AccountFacade {
