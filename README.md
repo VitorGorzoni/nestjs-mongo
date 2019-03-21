@@ -34,8 +34,10 @@ $ npm install
 ```
 ## Docker
 
+```bash
 $ docker build -t nestjs-mongo .
 $ docker run nestjs-mongo
+```
 
 ## Running the app
 
