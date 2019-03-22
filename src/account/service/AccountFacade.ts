@@ -1,5 +1,5 @@
-import { AccountEntity } from '../domain/entity/AccountEntity';
-import { AccountDTO } from '../domain/dto/AccountDTO';
+import { AccountEntity } from '../model/entity/AccountEntity';
+import { AccountDTO } from '../model/dto/AccountDTO';
 
 export interface AccountFacade {
     findById(id: string): Promise<AccountEntity>;

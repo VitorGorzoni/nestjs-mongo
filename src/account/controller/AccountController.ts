@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, UseInterceptors, CacheInterceptor } from '@nestjs/common';
-import { AccountService } from '../application/impl/AccountService';
-import { AccountEntity } from '../domain/entity/AccountEntity';
-import { AccountDTO } from '../domain/dto/AccountDTO';
+import { AccountService } from '../service/impl/AccountService';
+import { AccountEntity } from '../model/entity/AccountEntity';
+import { AccountDTO } from '../model/dto/AccountDTO';
 
 @UseInterceptors(CacheInterceptor)
 @Controller('account')
-export class AccountEndpoint {
+export class AccountController {
 
     constructor(private readonly accountService: AccountService) { }
 

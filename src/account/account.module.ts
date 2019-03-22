@@ -1,19 +1,12 @@
 import { Module, CacheModule } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { AccountService } from './application/impl/AccountService';
-import { AccountRepository } from './infrastructure/AccountRepository';
-import { AccountEndpoint } from './view/AccountEndpoint';
-import { AccountSchema } from './schema/account.schema';
+import { AccountService } from './service/impl/AccountService';
+import { AccountController } from './controller/AccountController';
+import { accountProviders } from './account.providers';
+import { DatabaseModule } from '../database/database.module';
 
 @Module({
-    imports: [
-        MongooseModule.forFeature([{ name: 'Account', schema: AccountSchema }]),
-        CacheModule.register()
-    ],
-    controllers: [AccountEndpoint],
-    providers: [
-        AccountService,
-        AccountRepository
-    ]
+    imports: [CacheModule.register(), DatabaseModule],
+    controllers: [AccountController],
+    providers: [AccountService, ...accountProviders]
 })
 export class AccountModule { }

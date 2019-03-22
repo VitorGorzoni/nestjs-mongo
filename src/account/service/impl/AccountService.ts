@@ -1,14 +1,12 @@
-
+import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { AccountEntity } from '../domain/entity/AccountEntity';
-import { AccountDTO } from '../domain/dto/AccountDTO';
+import { AccountEntity } from '../../model/entity/AccountEntity';
+import { AccountDTO } from '../../model/dto/AccountDTO';
+import { AccountFacade } from '../AccountFacade';
 
 @Injectable()
-export class AccountRepository {
-
-    constructor(@InjectModel('Account') private readonly accountModel: Model<AccountEntity>) { }
+export class AccountService implements AccountFacade {
+    constructor(@Inject('ACCOUNT_MODEL') private readonly accountModel: Model<AccountEntity>) { }
 
     async findAll(): Promise<AccountEntity[]> {
         return await this.accountModel.find().exec();
