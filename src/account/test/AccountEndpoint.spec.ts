@@ -3,6 +3,7 @@ import { AccountEndpoint } from '../view/AccountEndpoint';
 import { AccountService } from '../application/impl/AccountService';
 import { AccountModule } from '../account.module';
 import { AccountEntity } from '../domain/entity/AccountEntity';
+import { AppModule } from '../../app.module';
 
 describe('AccountEndpoint', () => {
     let accountEndpoint: AccountEndpoint;
@@ -10,7 +11,7 @@ describe('AccountEndpoint', () => {
 
     beforeEach(async () => {
         const module = await Test.createTestingModule({
-            imports: [AccountModule]
+            imports: [AppModule, AccountModule]
         }).compile();
 
         accountEndpoint = module.get<AccountEndpoint>(AccountEndpoint);
