@@ -22,4 +22,24 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           
       - run: npm run test
-  
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:65aa0614-8dac-49b8-99ad-25d93ac1721e@git.heroku.com/nestjs-mongo.git master
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
