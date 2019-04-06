@@ -4,7 +4,6 @@ import { AccountController } from '../controller/AccountController';
 import { AccountService } from '../service/impl/AccountService';
 import { AccountModule } from '../account.module';
 import { AccountEntity } from '../model/entity/AccountEntity';
-import { databaseProviders } from '../../database/database.providers';
 
 describe('AccountController', () => {
     let accountController: AccountController;
@@ -23,7 +22,6 @@ describe('AccountController', () => {
 
     describe('findAll', () => {
         it('should return an array of accounts', async (done) => {
-
             const accounts: AccountEntity[] = [{ name: 'Vitor', email: 'email@test.com' }];
             jest.spyOn(accountService, 'findAll').mockImplementation(() => Promise.resolve(accounts));
             expect(await accountController.findAll()).toBe(accounts);
