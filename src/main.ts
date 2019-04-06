@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { Server } from './config/server';
 import { AccountModule } from './account/account.module';
 
 async function bootstrap() {
@@ -19,6 +18,6 @@ async function bootstrap() {
   });
   SwaggerModule.setup('api/accounts', app, accountDocument);
 
-  await app.listen(Server.port);
+  await app.listen(process.env.PORT);
 }
 bootstrap();
