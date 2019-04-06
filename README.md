@@ -27,6 +27,9 @@
 ## Description
 Rest api with mongodb and swagger.
 
+## Application URL
+https://nestjs-mongo.herokuapp.com/api/accounts/
+
 ## Installation
 
 ```bash
