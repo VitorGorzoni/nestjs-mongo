@@ -19,7 +19,7 @@ async function bootstrap() {
   const accountDocument = SwaggerModule.createDocument(app, options, {
     include: [AccountModule],
   });
-  SwaggerModule.setup('api/account', app, accountDocument);
+  SwaggerModule.setup('api/accounts', app, accountDocument);
 
   await app.listen(process.env.PORT);
 }
