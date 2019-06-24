@@ -28,7 +28,7 @@
 Rest api with mongodb and swagger.
 
 ## Swagger URL
-https://nestjs-mongo.herokuapp.com/api/accounts/
+https://nestjs-mongo.herokuapp.com/api/account/
 
 ## Installation
 
